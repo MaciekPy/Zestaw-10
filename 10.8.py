@@ -14,7 +14,8 @@ class RandomQueue:
 
     def remove(self):   # zwraca losowy element
         rand_idx = random.randrange(len(self.items))
-        return self.items.pop(rand_idx)
+        self.items[rand_idx], self.items[-1] = self.items[-1], self.items[rand_idx]
+        return self.items.pop()
 
     def is_empty(self):
         return not self.items
